@@ -5,7 +5,9 @@
       "user": {
         "title": "Elige el patinete",
         "description": "Selecciona un patinete detectado por Bluetooth o escribe su dirección MAC (por ejemplo AA:BB:CC:DD:EE:FF). La MAC también aparece en Mi Home → patinete → ⋮ → Información.",
-        "data": {"address": "Patinete / MAC"}
+        "data": {
+          "address": "Patinete / MAC"
+        }
       },
       "method": {
         "title": "Clave de acceso del patinete",
@@ -18,12 +20,16 @@
       "pin": {
         "title": "PIN del patinete",
         "description": "Xiaomi devuelve la clave cifrada con el PIN que pusiste en Mi Home para proteger el patinete. Escríbelo aquí. Si no lo recuerdas, puedes cambiarlo en Mi Home → patinete → ⋮ → Contraseña.",
-        "data": {"pin": "PIN"}
+        "data": {
+          "pin": "PIN"
+        }
       },
       "manual": {
         "title": "Clave manual",
         "description": "Pega la clave LTMK (32 bytes en hexadecimal = 64 caracteres). Si el patinete está al alcance se comprobará antes de guardarla.",
-        "data": {"ltmk": "Clave LTMK"}
+        "data": {
+          "ltmk": "Clave LTMK"
+        }
       }
     },
     "progress": {
@@ -63,53 +69,134 @@
   },
   "entity": {
     "binary_sensor": {
-      "in_range": {"name": "En rango"},
-      "powered_on": {"name": "Encendido"},
-      "charging_any": {"name": "Cargando"},
-      "riding": {"name": "En marcha"},
-      "locked": {"name": "Bloqueo"},
-      "connected": {"name": "Conectado"}
+      "in_range": {
+        "name": "En rango"
+      },
+      "powered_on": {
+        "name": "Encendido"
+      },
+      "charging_any": {
+        "name": "Cargando"
+      },
+      "charged": {
+        "name": "Cargado"
+      },
+      "riding": {
+        "name": "En marcha"
+      },
+      "locked": {
+        "name": "Bloqueo"
+      },
+      "connected": {
+        "name": "Conectado"
+      }
     },
     "sensor": {
-      "battery_level": {"name": "Batería"},
-      "voltage": {"name": "Voltaje"},
-      "current": {"name": "Corriente"},
-      "power": {"name": "Potencia"},
-      "remaining_capacity": {"name": "Capacidad restante"},
-      "remaining_range": {"name": "Autonomía"},
-      "total_distance": {"name": "Kilómetros totales"},
-      "trip_distance": {"name": "Distancia del trayecto"},
-      "average_speed": {"name": "Velocidad media"},
-      "highest_speed": {"name": "Velocidad máxima"},
-      "riding_time": {"name": "Tiempo de trayecto"},
-      "battery_temperature": {"name": "Temperatura de la batería"},
-      "scooter_temperature": {"name": "Temperatura del patinete"},
-      "charge_cycles": {"name": "Ciclos de carga"},
-      "battery_health": {"name": "Salud de la batería"},
-      "lifetime_energy": {"name": "Energía total entregada"},
-      "riding_mode": {"name": "Modo de conducción"},
-      "fault": {"name": "Código de error"},
-      "energy_recovery": {"name": "Frenada regenerativa"},
-      "firmware": {"name": "Firmware"},
-      "bms_firmware": {"name": "Firmware del BMS"},
-      "last_read": {"name": "Última lectura"},
-      "last_seen": {"name": "Visto por última vez"}
+      "battery_level": {
+        "name": "Batería"
+      },
+      "voltage": {
+        "name": "Voltaje"
+      },
+      "current": {
+        "name": "Corriente"
+      },
+      "power": {
+        "name": "Potencia"
+      },
+      "remaining_capacity": {
+        "name": "Capacidad restante"
+      },
+      "remaining_range": {
+        "name": "Autonomía"
+      },
+      "total_distance": {
+        "name": "Kilómetros totales"
+      },
+      "trip_distance": {
+        "name": "Distancia del trayecto"
+      },
+      "average_speed": {
+        "name": "Velocidad media"
+      },
+      "highest_speed": {
+        "name": "Velocidad máxima"
+      },
+      "riding_time": {
+        "name": "Tiempo de trayecto"
+      },
+      "battery_temperature": {
+        "name": "Temperatura de la batería"
+      },
+      "scooter_temperature": {
+        "name": "Temperatura del patinete"
+      },
+      "charge_cycles": {
+        "name": "Ciclos de carga"
+      },
+      "battery_health": {
+        "name": "Salud de la batería"
+      },
+      "lifetime_energy": {
+        "name": "Energía total entregada"
+      },
+      "riding_mode": {
+        "name": "Modo de conducción"
+      },
+      "fault": {
+        "name": "Código de error"
+      },
+      "energy_recovery": {
+        "name": "Frenada regenerativa"
+      },
+      "firmware": {
+        "name": "Firmware"
+      },
+      "bms_firmware": {
+        "name": "Firmware del BMS"
+      },
+      "last_read": {
+        "name": "Última lectura"
+      },
+      "last_seen": {
+        "name": "Visto por última vez"
+      }
     },
     "number": {
-      "charge_limit": {"name": "Límite de carga"}
+      "charge_limit": {
+        "name": "Límite de carga"
+      }
     },
     "switch": {
-      "charge_control": {"name": "Control de carga"},
-      "tail_light": {"name": "Luz trasera fija"},
-      "auto_light": {"name": "Luz automática"},
-      "ambient_light": {"name": "Luz ambiental"},
-      "cruise_control": {"name": "Control de crucero"},
-      "tcs": {"name": "Control de tracción"},
-      "intelligent_downhill": {"name": "Bajada inteligente"},
-      "hill_parking": {"name": "Freno en cuesta"}
+      "charge_control": {
+        "name": "Control de carga"
+      },
+      "tail_light": {
+        "name": "Luz trasera fija"
+      },
+      "auto_light": {
+        "name": "Luz automática"
+      },
+      "ambient_light": {
+        "name": "Luz ambiental"
+      },
+      "cruise_control": {
+        "name": "Control de crucero"
+      },
+      "tcs": {
+        "name": "Control de tracción"
+      },
+      "intelligent_downhill": {
+        "name": "Bajada inteligente"
+      },
+      "hill_parking": {
+        "name": "Freno en cuesta"
+      }
     },
     "button": {
-      "refresh": {"name": "Actualizar ahora"}
+      "refresh": {
+        "name": "Actualizar ahora"
+      }
     }
   }
 }

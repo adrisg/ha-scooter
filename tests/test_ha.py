@@ -67,7 +67,7 @@ async def test_setup_creates_entities_and_options(hass):
 
     states = {s.entity_id for s in hass.states.async_all() if s.entity_id.split(".")[1].startswith("scooter")}
     for expected in ("sensor.scooter_battery", "binary_sensor.scooter_in_range",
-                     "binary_sensor.scooter_charging", "number.scooter_charge_limit",
+                     "binary_sensor.scooter_charging", "binary_sensor.scooter_charged", "number.scooter_charge_limit",
                      "switch.scooter_charge_control", "switch.scooter_tail_light_always_on"):
         assert expected in states, sorted(states)
     assert hass.states.get("binary_sensor.scooter_in_range").state == "off"
@@ -97,8 +97,10 @@ async def test_disconnects_once_charge_limit_reached(hass):
     c._values.update(charging=1, battery_level=79)
     c.charge_limit = 80
     assert c._should_stay_connected()          # charging below limit: 10 s reads
+    assert c._snapshot()["charged"] is False
     c._values["battery_level"] = 80
     assert not c._should_stay_connected()      # limit reached: disconnect, idle interval
+    assert c._snapshot()["charged"] is True    # "Charged" binary sensor
     c._values.update(charging=0, battery_level=50)
     assert not c._should_stay_connected()      # on but not charging
     c.keep_when_on = True

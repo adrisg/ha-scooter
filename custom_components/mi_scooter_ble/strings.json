@@ -5,7 +5,9 @@
       "user": {
         "title": "Choose the scooter",
         "description": "Pick a scooter found over Bluetooth or type its MAC address (e.g. AA:BB:CC:DD:EE:FF). It is also shown in Mi Home → scooter → ⋮ → Info.",
-        "data": {"address": "Scooter / MAC"}
+        "data": {
+          "address": "Scooter / MAC"
+        }
       },
       "method": {
         "title": "Scooter login key",
@@ -18,12 +20,16 @@
       "pin": {
         "title": "Scooter PIN",
         "description": "Xiaomi returns the key encrypted with the PIN you set in Mi Home to protect the scooter. Enter it here. If you forgot it, change it in Mi Home → scooter → ⋮ → Password.",
-        "data": {"pin": "PIN"}
+        "data": {
+          "pin": "PIN"
+        }
       },
       "manual": {
         "title": "Manual key",
         "description": "Paste the LTMK (32 bytes as hex = 64 characters). It is verified first if the scooter is in range.",
-        "data": {"ltmk": "LTMK"}
+        "data": {
+          "ltmk": "LTMK"
+        }
       }
     },
     "progress": {
@@ -63,53 +69,134 @@
   },
   "entity": {
     "binary_sensor": {
-      "in_range": {"name": "In range"},
-      "powered_on": {"name": "Powered on"},
-      "charging_any": {"name": "Charging"},
-      "riding": {"name": "Riding"},
-      "locked": {"name": "Lock"},
-      "connected": {"name": "Connected"}
+      "in_range": {
+        "name": "In range"
+      },
+      "powered_on": {
+        "name": "Powered on"
+      },
+      "charging_any": {
+        "name": "Charging"
+      },
+      "charged": {
+        "name": "Charged"
+      },
+      "riding": {
+        "name": "Riding"
+      },
+      "locked": {
+        "name": "Lock"
+      },
+      "connected": {
+        "name": "Connected"
+      }
     },
     "sensor": {
-      "battery_level": {"name": "Battery"},
-      "voltage": {"name": "Voltage"},
-      "current": {"name": "Current"},
-      "power": {"name": "Power"},
-      "remaining_capacity": {"name": "Remaining capacity"},
-      "remaining_range": {"name": "Range"},
-      "total_distance": {"name": "Total distance"},
-      "trip_distance": {"name": "Trip distance"},
-      "average_speed": {"name": "Average speed"},
-      "highest_speed": {"name": "Top speed"},
-      "riding_time": {"name": "Riding time"},
-      "battery_temperature": {"name": "Battery temperature"},
-      "scooter_temperature": {"name": "Scooter temperature"},
-      "charge_cycles": {"name": "Charge cycles"},
-      "battery_health": {"name": "Battery health"},
-      "lifetime_energy": {"name": "Lifetime energy"},
-      "riding_mode": {"name": "Riding mode"},
-      "fault": {"name": "Fault code"},
-      "energy_recovery": {"name": "Energy recovery"},
-      "firmware": {"name": "Firmware"},
-      "bms_firmware": {"name": "BMS firmware"},
-      "last_read": {"name": "Last read"},
-      "last_seen": {"name": "Last seen"}
+      "battery_level": {
+        "name": "Battery"
+      },
+      "voltage": {
+        "name": "Voltage"
+      },
+      "current": {
+        "name": "Current"
+      },
+      "power": {
+        "name": "Power"
+      },
+      "remaining_capacity": {
+        "name": "Remaining capacity"
+      },
+      "remaining_range": {
+        "name": "Range"
+      },
+      "total_distance": {
+        "name": "Total distance"
+      },
+      "trip_distance": {
+        "name": "Trip distance"
+      },
+      "average_speed": {
+        "name": "Average speed"
+      },
+      "highest_speed": {
+        "name": "Top speed"
+      },
+      "riding_time": {
+        "name": "Riding time"
+      },
+      "battery_temperature": {
+        "name": "Battery temperature"
+      },
+      "scooter_temperature": {
+        "name": "Scooter temperature"
+      },
+      "charge_cycles": {
+        "name": "Charge cycles"
+      },
+      "battery_health": {
+        "name": "Battery health"
+      },
+      "lifetime_energy": {
+        "name": "Lifetime energy"
+      },
+      "riding_mode": {
+        "name": "Riding mode"
+      },
+      "fault": {
+        "name": "Fault code"
+      },
+      "energy_recovery": {
+        "name": "Energy recovery"
+      },
+      "firmware": {
+        "name": "Firmware"
+      },
+      "bms_firmware": {
+        "name": "BMS firmware"
+      },
+      "last_read": {
+        "name": "Last read"
+      },
+      "last_seen": {
+        "name": "Last seen"
+      }
     },
     "number": {
-      "charge_limit": {"name": "Charge limit"}
+      "charge_limit": {
+        "name": "Charge limit"
+      }
     },
     "switch": {
-      "charge_control": {"name": "Charge control"},
-      "tail_light": {"name": "Tail light always on"},
-      "auto_light": {"name": "Automatic light"},
-      "ambient_light": {"name": "Ambient light"},
-      "cruise_control": {"name": "Cruise control"},
-      "tcs": {"name": "Traction control"},
-      "intelligent_downhill": {"name": "Intelligent downhill"},
-      "hill_parking": {"name": "Hill hold"}
+      "charge_control": {
+        "name": "Charge control"
+      },
+      "tail_light": {
+        "name": "Tail light always on"
+      },
+      "auto_light": {
+        "name": "Automatic light"
+      },
+      "ambient_light": {
+        "name": "Ambient light"
+      },
+      "cruise_control": {
+        "name": "Cruise control"
+      },
+      "tcs": {
+        "name": "Traction control"
+      },
+      "intelligent_downhill": {
+        "name": "Intelligent downhill"
+      },
+      "hill_parking": {
+        "name": "Hill hold"
+      }
     },
     "button": {
-      "refresh": {"name": "Refresh now"}
+      "refresh": {
+        "name": "Refresh now"
+      }
     }
   }
 }

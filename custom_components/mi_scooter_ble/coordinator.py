@@ -306,6 +306,7 @@ class ScooterCoordinator(DataUpdateCoordinator[dict]):
         data.update(
             in_range=self.in_range, connected=self.connected, powered_on=self.powered_on,
             charging_any=self.charging, last_seen=self.last_seen,
+            charged=self.limit_reached if "battery_level" in self._values else None,
         )
         data.update(p.decode_battery_extra(data.get("battery_extra")))
         return data

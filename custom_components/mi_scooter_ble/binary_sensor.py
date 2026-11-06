@@ -14,6 +14,8 @@ BINARY = (
     BinarySensorEntityDescription(key="in_range", device_class=BinarySensorDeviceClass.PRESENCE),
     BinarySensorEntityDescription(key="powered_on", device_class=BinarySensorDeviceClass.POWER),
     BinarySensorEntityDescription(key="charging_any", device_class=BinarySensorDeviceClass.BATTERY_CHARGING),
+    # On when the battery is at or above the charge limit (for your own automations).
+    BinarySensorEntityDescription(key="charged", icon="mdi:battery-check"),
     BinarySensorEntityDescription(key="riding", device_class=BinarySensorDeviceClass.MOVING),
     BinarySensorEntityDescription(key="locked", device_class=BinarySensorDeviceClass.LOCK, icon="mdi:lock"),
     BinarySensorEntityDescription(key="connected", device_class=BinarySensorDeviceClass.CONNECTIVITY,

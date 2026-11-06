@@ -63,6 +63,29 @@ HACS → ⋮ → **Repositorios personalizados** → URL de este repositorio, ti
    sensor de potencia configurado, el enchufe se corta cuando el cargador lleva 5 minutos
    por debajo del umbral, es decir, cuando ha terminado.
 
+### Hacerlo con tu propia automatización
+
+Si prefieres no usar **Control de carga**, el sensor **Cargado** (`binary_sensor.<patinete>_cargado`)
+se activa cuando la batería llega al **Límite de carga**:
+
+```yaml
+alias: Patinete cargado - cortar enchufe
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.scooter_adrian_cargado
+    to: "on"
+actions:
+  - action: switch.turn_off
+    target:
+      entity_id: switch.shelly_patinete
+  - action: notify.notify
+    data:
+      message: "Patinete cargado al {{ states('sensor.scooter_adrian_bateria') }} %"
+```
+
+Ojo: con el patinete apagado la batería está congelada, así que «Cargado» solo cambia
+mientras está encendido.
+
 ## Cómo funciona
 
 | Estado | Qué hace la integración |
