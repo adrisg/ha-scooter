@@ -84,11 +84,3 @@ async def test_setup_creates_entities_and_options(hass):
 
     assert await hass.config_entries.async_unload(entry.entry_id)
 
-
-async def test_debug_loader(hass):
-    import sys
-    from homeassistant import loader
-    cc = sys.modules.get("custom_components")
-    print("DEBUG custom_components:", getattr(cc, "__path__", None), getattr(cc, "__file__", None))
-    comps = await loader.async_get_custom_components(hass)
-    assert False, ("DEBUGX", getattr(cc, "__path__", None), sorted(comps))
