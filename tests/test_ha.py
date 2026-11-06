@@ -25,11 +25,11 @@ def no_bluetooth_stack():
     """Skip the real Bluetooth stack: patch the helpers the integration uses."""
     with patch("homeassistant.components.bluetooth.async_setup", return_value=True), \
          patch("homeassistant.components.bluetooth_adapters.async_setup", return_value=True, create=True), \
-         patch("custom_components.mi_scooter_ble.config_flow.bluetooth.async_discovered_service_info", return_value=[]), \
-         patch("custom_components.mi_scooter_ble.config_flow.bluetooth.async_last_service_info", return_value=None), \
-         patch("custom_components.mi_scooter_ble.coordinator.bluetooth.async_register_callback", return_value=lambda: None), \
-         patch("custom_components.mi_scooter_ble.coordinator.bluetooth.async_track_unavailable", return_value=lambda: None), \
-         patch("custom_components.mi_scooter_ble.coordinator.bluetooth.async_address_present", return_value=False):
+         patch("homeassistant.components.bluetooth.async_discovered_service_info", return_value=[]), \
+         patch("homeassistant.components.bluetooth.async_last_service_info", return_value=None), \
+         patch("homeassistant.components.bluetooth.async_register_callback", return_value=lambda: None), \
+         patch("homeassistant.components.bluetooth.async_track_unavailable", return_value=lambda: None), \
+         patch("homeassistant.components.bluetooth.async_address_present", return_value=False):
         yield
 
 
