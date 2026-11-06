@@ -1,0 +1,47 @@
+# Proxy Bluetooth ACTIVO para el patinete (ESP32 con ESPHome).
+# Lo importante es `bluetooth_proxy: active: true`: sin él, Home Assistant ve el
+# patinete pero no puede conectarse para leerlo.
+#
+# Para añadirlo a un ESP32 que ya tengas (por ejemplo, una lámpara), copia solo los
+# bloques `esp32_ble_tracker` y `bluetooth_proxy` del final a su configuración.
+# Se recomienda el framework esp-idf.
+
+substitutions:
+  name: scooter-bt-proxy
+  friendly_name: Scooter BT Proxy
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf  # recomendado para Bluetooth (menos memoria que Arduino)
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  platform: esphome
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "Scooter BT Proxy"
+    password: !secret wifi_ap_password
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: true
+    interval: 1100ms
+    window: 1100ms
+
+bluetooth_proxy:
+  active: true            # <- permite conexiones (necesario para leer el patinete)
+  cache_services: true    # acelera las reconexiones

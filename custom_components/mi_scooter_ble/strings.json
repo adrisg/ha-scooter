@@ -1,0 +1,115 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Choose the scooter",
+        "description": "Pick a scooter found over Bluetooth or type its MAC address (e.g. AA:BB:CC:DD:EE:FF). It is also shown in Mi Home → scooter → ⋮ → Info.",
+        "data": {"address": "Scooter / MAC"}
+      },
+      "method": {
+        "title": "Scooter login key",
+        "description": "The scooter ({address}) only accepts connections with its login key (LTMK), stored in your Mi Home account.",
+        "menu_options": {
+          "cloud": "Get it from Mi Home (QR code + PIN) — recommended",
+          "manual": "I already have the key (64 hex characters)"
+        }
+      },
+      "pin": {
+        "title": "Scooter PIN",
+        "description": "Xiaomi returns the key encrypted with the PIN you set in Mi Home to protect the scooter. Enter it here. If you forgot it, change it in Mi Home → scooter → ⋮ → Password.",
+        "data": {"pin": "PIN"}
+      },
+      "manual": {
+        "title": "Manual key",
+        "description": "Paste the LTMK (32 bytes as hex = 64 characters). It is verified first if the scooter is in range.",
+        "data": {"ltmk": "LTMK"}
+      }
+    },
+    "progress": {
+      "qr_scan": "Open **Mi Home** on your phone → **Profile** → scan icon (top right) and scan this code, then confirm the login on the phone.\n\n![QR code]({qr})\n\nIf the code does not show, open [this link]({url}) in a browser already signed in to your Xiaomi account."
+    },
+    "error": {
+      "invalid_mac": "Invalid MAC address.",
+      "invalid_pin": "The scooter rejected the key: the PIN is wrong.",
+      "invalid_key": "The scooter rejected this key.",
+      "invalid_key_format": "The key must be exactly 64 hexadecimal characters."
+    },
+    "abort": {
+      "already_configured": "This scooter is already configured.",
+      "cloud_unreachable": "Could not reach Mi Cloud.",
+      "cloud_login_failed": "The QR login expired or was rejected. Try again.",
+      "not_in_account": "Scooter {address} is not linked to this Mi Home account.",
+      "key_rejected": "The scooter rejected the key returned by Mi Cloud."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Charging and connection",
+        "description": "Set the smart plug the charger is connected to. With “Charge control” on, the plug is switched off at the charge limit (scooter on) or when the charger stops drawing power (scooter off).",
+        "data": {
+          "plug_switch": "Charger plug",
+          "plug_power_sensor": "Plug power sensor (optional)",
+          "plug_idle_watts": "Below this power the charger is not charging",
+          "idle_interval": "Check every (while the scooter is off)",
+          "keep_connected_when_on": "Stay connected while powered on (even when not charging)"
+        },
+        "data_description": {
+          "keep_connected_when_on": "While connected, the Mi Home app cannot connect to the scooter."
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "in_range": {"name": "In range"},
+      "powered_on": {"name": "Powered on"},
+      "charging_any": {"name": "Charging"},
+      "riding": {"name": "Riding"},
+      "locked": {"name": "Lock"},
+      "connected": {"name": "Connected"}
+    },
+    "sensor": {
+      "battery_level": {"name": "Battery"},
+      "voltage": {"name": "Voltage"},
+      "current": {"name": "Current"},
+      "power": {"name": "Power"},
+      "remaining_capacity": {"name": "Remaining capacity"},
+      "remaining_range": {"name": "Range"},
+      "total_distance": {"name": "Total distance"},
+      "trip_distance": {"name": "Trip distance"},
+      "average_speed": {"name": "Average speed"},
+      "highest_speed": {"name": "Top speed"},
+      "riding_time": {"name": "Riding time"},
+      "battery_temperature": {"name": "Battery temperature"},
+      "scooter_temperature": {"name": "Scooter temperature"},
+      "charge_cycles": {"name": "Charge cycles"},
+      "battery_health": {"name": "Battery health"},
+      "lifetime_energy": {"name": "Lifetime energy"},
+      "riding_mode": {"name": "Riding mode"},
+      "fault": {"name": "Fault code"},
+      "energy_recovery": {"name": "Energy recovery"},
+      "firmware": {"name": "Firmware"},
+      "bms_firmware": {"name": "BMS firmware"},
+      "last_read": {"name": "Last read"},
+      "last_seen": {"name": "Last seen"}
+    },
+    "number": {
+      "charge_limit": {"name": "Charge limit"}
+    },
+    "switch": {
+      "charge_control": {"name": "Charge control"},
+      "tail_light": {"name": "Tail light always on"},
+      "auto_light": {"name": "Automatic light"},
+      "ambient_light": {"name": "Ambient light"},
+      "cruise_control": {"name": "Cruise control"},
+      "tcs": {"name": "Traction control"},
+      "intelligent_downhill": {"name": "Intelligent downhill"},
+      "hill_parking": {"name": "Hill hold"}
+    },
+    "button": {
+      "refresh": {"name": "Refresh now"}
+    }
+  }
+}

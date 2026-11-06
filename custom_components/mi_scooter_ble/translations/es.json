@@ -1,0 +1,115 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Elige el patinete",
+        "description": "Selecciona un patinete detectado por Bluetooth o escribe su dirección MAC (por ejemplo AA:BB:CC:DD:EE:FF). La MAC también aparece en Mi Home → patinete → ⋮ → Información.",
+        "data": {"address": "Patinete / MAC"}
+      },
+      "method": {
+        "title": "Clave de acceso del patinete",
+        "description": "El patinete ({address}) solo acepta conexiones con su clave de inicio de sesión (LTMK), que guarda tu cuenta de Mi Home.",
+        "menu_options": {
+          "cloud": "Obtenerla de Mi Home (código QR + PIN) — recomendado",
+          "manual": "Ya tengo la clave (64 caracteres hexadecimales)"
+        }
+      },
+      "pin": {
+        "title": "PIN del patinete",
+        "description": "Xiaomi devuelve la clave cifrada con el PIN que pusiste en Mi Home para proteger el patinete. Escríbelo aquí. Si no lo recuerdas, puedes cambiarlo en Mi Home → patinete → ⋮ → Contraseña.",
+        "data": {"pin": "PIN"}
+      },
+      "manual": {
+        "title": "Clave manual",
+        "description": "Pega la clave LTMK (32 bytes en hexadecimal = 64 caracteres). Si el patinete está al alcance se comprobará antes de guardarla.",
+        "data": {"ltmk": "Clave LTMK"}
+      }
+    },
+    "progress": {
+      "qr_scan": "Abre **Mi Home** en el móvil → **Perfil** → icono de escanear (arriba a la derecha) y escanea este código. Después confirma el inicio de sesión en el móvil.\n\n![Código QR]({qr})\n\nSi el código no se ve, abre [este enlace]({url}) en un navegador donde ya tengas sesión iniciada en tu cuenta Xiaomi."
+    },
+    "error": {
+      "invalid_mac": "La dirección MAC no es válida.",
+      "invalid_pin": "El patinete ha rechazado la clave: el PIN no es correcto.",
+      "invalid_key": "El patinete ha rechazado esta clave.",
+      "invalid_key_format": "La clave debe tener exactamente 64 caracteres hexadecimales."
+    },
+    "abort": {
+      "already_configured": "Este patinete ya está configurado.",
+      "cloud_unreachable": "No se ha podido contactar con Mi Cloud.",
+      "cloud_login_failed": "El inicio de sesión por QR ha caducado o se ha rechazado. Vuelve a intentarlo.",
+      "not_in_account": "El patinete {address} no está vinculado a esta cuenta de Mi Home.",
+      "key_rejected": "El patinete ha rechazado la clave obtenida de Mi Cloud."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Carga y conexión",
+        "description": "Configura el enchufe inteligente donde conectas el cargador. Con «Control de carga» activado, la integración apaga el enchufe al llegar al límite de carga (si el patinete está encendido) o cuando el cargador deja de consumir (si está apagado).",
+        "data": {
+          "plug_switch": "Enchufe del cargador",
+          "plug_power_sensor": "Sensor de potencia del enchufe (opcional)",
+          "plug_idle_watts": "Por debajo de esta potencia el cargador no está cargando",
+          "idle_interval": "Comprobar cada (con el patinete apagado)",
+          "keep_connected_when_on": "Mantener la conexión mientras está encendido (aunque no cargue)"
+        },
+        "data_description": {
+          "keep_connected_when_on": "Mientras haya conexión, la app Mi Home no podrá conectarse al patinete."
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "in_range": {"name": "En rango"},
+      "powered_on": {"name": "Encendido"},
+      "charging_any": {"name": "Cargando"},
+      "riding": {"name": "En marcha"},
+      "locked": {"name": "Bloqueo"},
+      "connected": {"name": "Conectado"}
+    },
+    "sensor": {
+      "battery_level": {"name": "Batería"},
+      "voltage": {"name": "Voltaje"},
+      "current": {"name": "Corriente"},
+      "power": {"name": "Potencia"},
+      "remaining_capacity": {"name": "Capacidad restante"},
+      "remaining_range": {"name": "Autonomía"},
+      "total_distance": {"name": "Kilómetros totales"},
+      "trip_distance": {"name": "Distancia del trayecto"},
+      "average_speed": {"name": "Velocidad media"},
+      "highest_speed": {"name": "Velocidad máxima"},
+      "riding_time": {"name": "Tiempo de trayecto"},
+      "battery_temperature": {"name": "Temperatura de la batería"},
+      "scooter_temperature": {"name": "Temperatura del patinete"},
+      "charge_cycles": {"name": "Ciclos de carga"},
+      "battery_health": {"name": "Salud de la batería"},
+      "lifetime_energy": {"name": "Energía total entregada"},
+      "riding_mode": {"name": "Modo de conducción"},
+      "fault": {"name": "Código de error"},
+      "energy_recovery": {"name": "Frenada regenerativa"},
+      "firmware": {"name": "Firmware"},
+      "bms_firmware": {"name": "Firmware del BMS"},
+      "last_read": {"name": "Última lectura"},
+      "last_seen": {"name": "Visto por última vez"}
+    },
+    "number": {
+      "charge_limit": {"name": "Límite de carga"}
+    },
+    "switch": {
+      "charge_control": {"name": "Control de carga"},
+      "tail_light": {"name": "Luz trasera fija"},
+      "auto_light": {"name": "Luz automática"},
+      "ambient_light": {"name": "Luz ambiental"},
+      "cruise_control": {"name": "Control de crucero"},
+      "tcs": {"name": "Control de tracción"},
+      "intelligent_downhill": {"name": "Bajada inteligente"},
+      "hill_parking": {"name": "Freno en cuesta"}
+    },
+    "button": {
+      "refresh": {"name": "Actualizar ahora"}
+    }
+  }
+}

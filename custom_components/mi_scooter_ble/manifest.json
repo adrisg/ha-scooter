@@ -1,0 +1,19 @@
+{
+  "domain": "mi_scooter_ble",
+  "name": "Xiaomi Scooter BLE",
+  "bluetooth": [
+    {
+      "local_name": "xiaomi.scooter*",
+      "connectable": true
+    }
+  ],
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["bluetooth_adapters"],
+  "documentation": "https://github.com/OWNER/ha-scooter",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/OWNER/ha-scooter/issues",
+  "loggers": ["custom_components.mi_scooter_ble"],
+  "requirements": [],
+  "version": "0.1.0"
+}

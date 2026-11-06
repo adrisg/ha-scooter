@@ -1,0 +1,12 @@
+# Secrets: never commit scooter keys or cloud sessions
+secrets/
+*.hex
+*session*.json
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
