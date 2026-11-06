@@ -62,4 +62,4 @@ class ScooterSensor(ScooterEntity, SensorEntity):
 
     @property
     def native_value(self):
-        return self.value
+        return self.scooter_value

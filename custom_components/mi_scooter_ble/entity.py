@@ -32,5 +32,5 @@ class ScooterEntity(CoordinatorEntity[ScooterCoordinator]):
         return True
 
     @property
-    def value(self):
+    def scooter_value(self):
         return (self.coordinator.data or {}).get(self._key)

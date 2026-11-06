@@ -33,7 +33,7 @@ class ScooterBinary(ScooterEntity, BinarySensorEntity):
 
     @property
     def is_on(self) -> bool | None:
-        value = self.value
+        value = self.scooter_value
         if self._key == "locked" and value is not None:
             return not value  # HA lock class: on = unlocked
         return None if value is None else bool(value)

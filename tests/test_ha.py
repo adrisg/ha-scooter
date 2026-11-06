@@ -71,7 +71,7 @@ async def test_setup_creates_entities_and_options(hass):
                      "switch.scooter_charge_control", "switch.scooter_tail_light_always_on"):
         assert expected in states, sorted(states)
     assert hass.states.get("binary_sensor.scooter_in_range").state == "off"
-    assert hass.states.get("number.scooter_charge_limit").state == "100"
+    assert float(hass.states.get("number.scooter_charge_limit").state) == 100
 
     result = await hass.config_entries.options.async_init(entry.entry_id)
     assert result["type"] is FlowResultType.FORM

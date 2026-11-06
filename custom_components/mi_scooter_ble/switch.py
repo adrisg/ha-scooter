@@ -70,7 +70,7 @@ class SettingSwitch(ScooterEntity, SwitchEntity):
 
     @property
     def is_on(self) -> bool | None:
-        value = self.value
+        value = self.scooter_value
         return None if value is None else bool(value)
 
     async def _write(self, on: bool) -> None:
