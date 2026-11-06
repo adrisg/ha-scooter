@@ -91,4 +91,4 @@ async def test_debug_loader(hass):
     cc = sys.modules.get("custom_components")
     print("DEBUG custom_components:", getattr(cc, "__path__", None), getattr(cc, "__file__", None))
     comps = await loader.async_get_custom_components(hass)
-    print("DEBUG found:", sorted(comps))
+    assert False, ("DEBUGX", getattr(cc, "__path__", None), sorted(comps))
