@@ -22,15 +22,23 @@ Todo lo aprendido sobre el patinete está en [docs/PROTOCOL.md](docs/PROTOCOL.md
   saber si el patinete está en rango, no para leerlo.
 * El patinete vinculado a tu cuenta de **Mi Home** (para obtener la clave).
 
-## Instalación (HACS, repositorio privado)
+## Instalación
 
-1. HACS → ⋮ → **Repositorios personalizados** → URL de este repositorio, tipo **Integración**.
-   Al ser privado, HACS necesita un token de GitHub con acceso al repositorio.
-2. Instala **Xiaomi Scooter BLE** y reinicia Home Assistant.
+### Manual (repositorio privado)
+
+HACS no admite repositorios privados, así que mientras este lo sea:
+
+1. Copia la carpeta `custom_components/mi_scooter_ble` en `/config/custom_components/`
+   de Home Assistant, por ejemplo con el complemento **Samba share**, **Studio Code Server**
+   o **Terminal & SSH**.
+2. Reinicia Home Assistant.
 3. Ajustes → Dispositivos y servicios: el patinete debería aparecer como **descubierto**.
    Si no, **Añadir integración → Xiaomi Scooter BLE**.
 
-Instalación manual: copia `custom_components/mi_scooter_ble` en `config/custom_components/`.
+### HACS (solo si el repositorio es público)
+
+HACS → ⋮ → **Repositorios personalizados** → URL de este repositorio, tipo
+**Integración** → instalar **Xiaomi Scooter BLE** → reiniciar.
 
 ## Configuración
 
