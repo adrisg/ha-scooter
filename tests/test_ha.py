@@ -84,3 +84,25 @@ async def test_setup_creates_entities_and_options(hass):
 
     assert await hass.config_entries.async_unload(entry.entry_id)
 
+
+
+async def test_disconnects_once_charge_limit_reached(hass):
+    entry = MockConfigEntry(domain=DOMAIN, unique_id=MAC, title="Scooter",
+                            data={CONF_ADDRESS: MAC, "ltmk": KEY, "model": "xiaomi.scooter.5max"})
+    entry.add_to_hass(hass)
+    assert await hass.config_entries.async_setup(entry.entry_id)
+    await hass.async_block_till_done()
+    c = entry.runtime_data
+    c._power_on = True
+    c._values.update(charging=1, battery_level=79)
+    c.charge_limit = 80
+    assert c._should_stay_connected()          # charging below limit: 10 s reads
+    c._values["battery_level"] = 80
+    assert not c._should_stay_connected()      # limit reached: disconnect, idle interval
+    c._values.update(charging=0, battery_level=50)
+    assert not c._should_stay_connected()      # on but not charging
+    c.keep_when_on = True
+    assert c._should_stay_connected()          # user option
+    c._power_on = False
+    assert not c._should_stay_connected()      # off: never stay
+    assert await hass.config_entries.async_unload(entry.entry_id)

@@ -207,8 +207,7 @@ class ScooterCoordinator(DataUpdateCoordinator[dict]):
                 self._set_interval(self.idle_interval)
                 return self._snapshot()
 
-            keep = self.powered_on and (self.charging_live or self.keep_when_on)
-            if keep:
+            if self._should_stay_connected():
                 self._set_interval(FAST_INTERVAL)
             else:
                 await self._disconnect()
@@ -219,6 +218,20 @@ class ScooterCoordinator(DataUpdateCoordinator[dict]):
 
     def _set_interval(self, seconds: int) -> None:
         self.update_interval = timedelta(seconds=seconds)
+
+    @property
+    def limit_reached(self) -> bool:
+        level = self._values.get("battery_level")
+        return level is not None and level >= self.charge_limit
+
+    def _should_stay_connected(self) -> bool:
+        """Stay connected (10 s reads) only while charging below the limit,
+        or while powered on if the user asked for it. Otherwise read every idle_interval."""
+        if not self.powered_on:
+            return False
+        if self.keep_when_on:
+            return True
+        return self.charging_live and not self.limit_reached
 
     # -------------------------------------------------------------- charging
     @property
@@ -283,7 +296,7 @@ class ScooterCoordinator(DataUpdateCoordinator[dict]):
             if not await session.set(prop, value):
                 raise ScooterError(f"scooter refused {key}={value}")
             self._values[key] = p.scaled(prop, await session.get(prop))
-            if not (self.powered_on and (self.charging_live or self.keep_when_on)):
+            if not self._should_stay_connected():
                 await self._disconnect()
         self.async_set_updated_data(self._snapshot())
 

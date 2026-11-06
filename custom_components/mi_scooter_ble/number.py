@@ -41,3 +41,5 @@ class ChargeLimit(ScooterEntity, RestoreNumber):
     async def async_set_native_value(self, value: float) -> None:
         self.coordinator.charge_limit = value
         self.async_write_ha_state()
+        # Raising the limit while connected-idle should resume fast reads right away.
+        await self.coordinator.async_request_refresh()

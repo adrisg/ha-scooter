@@ -69,7 +69,8 @@ HACS → ⋮ → **Repositorios personalizados** → URL de este repositorio, ti
 |---|---|
 | Fuera de rango | Mantiene los últimos valores; «En rango» = apagado |
 | En rango, apagado | Se conecta cada *N* minutos, comprueba si los valores se mueven y se desconecta |
-| Encendido y cargando | Conexión permanente, lectura cada 10 s, control de carga |
+| Encendido y cargando (por debajo del límite) | Conexión permanente, lectura cada 10 s, control de carga |
+| Límite de carga alcanzado | Corta el enchufe (si está configurado), se desconecta y vuelve a leer cada *N* minutos |
 | Encendido sin cargar | Lee y se desconecta (o se queda conectado si lo activas en opciones) |
 
 Mientras la integración está conectada, la app Mi Home no puede conectarse al patinete.
