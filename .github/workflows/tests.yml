@@ -24,7 +24,8 @@ jobs:
           EOF
           cat ha_reqs.txt
           pip install -r ha_reqs.txt
-      - run: pytest -v tests/
+      - run: python -c "import custom_components; print(custom_components.__path__)"
+      - run: python -m pytest -v tests/
 
   hassfest:
     runs-on: ubuntu-latest
