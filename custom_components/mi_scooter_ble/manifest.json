@@ -7,12 +7,12 @@
       "connectable": true
     }
   ],
-  "codeowners": [],
+  "codeowners": ["@adrisg"],
   "config_flow": true,
   "dependencies": ["bluetooth_adapters"],
-  "documentation": "https://github.com/OWNER/ha-scooter",
+  "documentation": "https://github.com/adrisg/ha-scooter",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/OWNER/ha-scooter/issues",
+  "issue_tracker": "https://github.com/adrisg/ha-scooter/issues",
   "loggers": ["custom_components.mi_scooter_ble"],
   "requirements": [],
   "version": "0.1.0"
